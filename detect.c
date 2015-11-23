@@ -37,7 +37,7 @@
  * ouput is 'power', NUMTONES values
  *  corresponding to the power of each tone 
  */
-calc_power(char *data,float *power)
+void calc_power(char *data,float *power)
 {
   float u0[NUMTONES],u1[NUMTONES],t,in;
   int i,j;
@@ -56,7 +56,6 @@ calc_power(char *data,float *power)
   }
   for(j=0; j<NUMTONES; j++)   /* feedforward */
     power[j] = u0[j] * u0[j] + u1[j] * u1[j] - coef[j] * u0[j] * u1[j]; 
-  return(0);
 }
 
 
@@ -191,9 +190,7 @@ printf("\n");
   return(-1); 
 }
 
-read_frame(fd,buf)
-int fd;
-char *buf;
+int read_frame(int fd, char *buf)
 {
   int i,x;
 
@@ -210,9 +207,7 @@ char *buf;
  * read in frames, output the decoded
  * results
  */
-dtmf_to_ascii(fd1, fd2)
-int fd1;
-FILE *fd2;
+void dtmf_to_ascii(int fd1, FILE *fd2)
 {
   int x,last= DSIL;
   char frame[N+5];
