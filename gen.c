@@ -7,7 +7,7 @@
  * or to a sound device 
  */
 
-#  define FLOAT_TO_SAMPLE(x)    ((char)((x + 1.0) * 127.0))
+#define FLOAT_TO_SAMPLE(x)    ((char)((x + 1.0) * 127.0))
 
 #define SOUND_DEV  "/dev/dsp"
 typedef char sample;
@@ -60,7 +60,7 @@ void two_tones(int sound_out,unsigned int tone1, unsigned int tone2, unsigned in
   ad2 = (tone2 << 16) / FSAMPLE;
   l = (length * FSAMPLE) / 1000;
   x = 0;
-  for( c1=0, c2=0, i=0 ;
+  for( c1=0, c2=0, i=0;
        i < l;
        i++, c1+= ad1, c2+= ad2 ) {
     out = (mysine(c1) + mysine(c2)) * 0.5;

@@ -214,7 +214,7 @@ void dtmf_to_ascii(int fd1, FILE *fd2)
   int silence_time;
 
   while(read_frame(fd1, frame)) {
-    x = decode(frame); 
+    x = decode(frame);
 /*
 if(x== -1) putchar('-');
 if(x==DSIL) putchar(' ');
